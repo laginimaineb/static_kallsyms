@@ -59,7 +59,7 @@ def find_kallsyms_addresses(kernel_data, kernel_text_start):
 	Searching for the beginning of the kernel's symbol table
 	Returns the offset of the kernel's symbol table, or -1 if the symbol table could not be found
 	'''
-	search_str = struct.pack("<I", DEFAULT_KERNEL_TEXT_START) * KALLSYMS_ADDRESSES_MIN_HEURISTIC
+	search_str = struct.pack("<I", kernel_text_start) * KALLSYMS_ADDRESSES_MIN_HEURISTIC
 	return kernel_data.find(search_str)
 
 def get_kernel_symbol_table(kernel_data, kernel_text_start):	
